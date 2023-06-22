@@ -56,7 +56,8 @@ def retrieveCraterClusters(array):
             sortedclusters[clusters[i]].append(mat[i])
         else:
             sortedclusters[clusters[i]] = [mat[i]]
-    sortedclusters = {k: v for k, v in sortedclusters.iteritems() if len(v) > 12}
+    # sortedclusters = {k: v for k, v in sortedclusters.iteritems() if len(v) > 12}
+    sortedclusters = {k: v for k, v in sortedclusters.items() if len(v) > 12}
     ## Uncomment this section to plot the clusters.
     mat = []
     # map(lambda (k, v): map(lambda l: mat.append([l[0], l[1]]), v), sortedclusters.items())
