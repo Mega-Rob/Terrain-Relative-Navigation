@@ -81,7 +81,9 @@ class Navigator:
         referenceCenterPoints = preprocessor.extractCenterpoints(referenceCraters)
         descentImageCenterPoints = preprocessor.extractCenterpoints(descentImageCraters)
         # verificationcraters = [random.choice(list(descentImageCraters.items())) for k in range(0,3)]
-        verificationcraters = [list(descentImageCraters.items()[k]) for k in [1,3,4]]
+        # verificationcraters = [list(descentImageCraters.items()[k]) for k in [1,3,4]]
+        verificationcraters = [list(list(descentImageCraters.items())[k]) for k in [1, 3, 4]]
+
         foundreferencecraters = []
         scale = 0
         for descentkey, crater in verificationcraters:
@@ -111,7 +113,9 @@ class Navigator:
         lowerrightpoint = np.array([0,0])
         upperrightpoint = np.array([0,0])
         lowerleftpoint = np.array([0,0])
-        for i in range(0, 3):
+        # print("-- foundreferencecraters lenght : ", len(foundreferencecraters))
+        # for i in range(0, 3):
+        for i in range(len(foundreferencecraters)):
             verificationcrater = verificationcraters[i][1].centerpoint
             referencecrater = foundreferencecraters[i]
             r = np.array([referencecrater[0], referencecrater[1]])

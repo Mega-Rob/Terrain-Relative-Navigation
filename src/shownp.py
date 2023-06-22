@@ -69,10 +69,15 @@ def saveData(datapath, allCombinations, file):
     f.write(combinationdata)
     f.close()
 
+# def loadData(datapath, file):
+#     f = open(os.path.join(os.curdir, datapath + "reference_preprocess", file), "rb")
+#     layers_data = f.read()
+#     return pickle.loads(layers_data)
+
 def loadData(datapath, file):
-    f = open(os.path.join(os.curdir, datapath + "reference_preprocess", file), "rb")
-    layers_data = f.read()
-    return pickle.loads(layers_data)
+    with open(os.path.join(datapath, "reference_preprocess", file), "rb") as f:
+        layers_data = pickle.load(f, encoding='latin1')
+    return layers_data
 
 def plotClusters(mat):
     mat = np.array(mat)

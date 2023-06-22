@@ -6,6 +6,7 @@ import src.CraterDetector as craterdetector
 referenceAltitude = 2000
 
 datapath = "../data/"
+# datapath = "/Users/meha/PycharmProjects/Terrain-Relative-Navigation/data"
 referenceMap = "ReferenceMap.ppm"
 referenceCatalogue = "finalReferenceCraterData"
 # defaultDescentImages = ["Scene1.ppm", "Scene2.ppm", "Scene3.ppm", "Scene4.ppm"]
