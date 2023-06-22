@@ -1,4 +1,4 @@
-import Image
+from PIL import Image
 import sys
 from src.TerrainNavigator import Navigator
 import src.CraterDetector as craterdetector
@@ -14,14 +14,14 @@ defaultDescentImages = ["Scene3.ppm"]
 args = len(sys.argv)
 arguments = sys.argv
 
-if (args is 1 or args is 0):
-    navigator = Navigator(referenceAltitude, referenceMap, referenceCatalogue, datapath)
-    for descentimage in defaultDescentImages:
-        # craterdetector.extractCratersWithImage(Image.open(datapath + "TRN/" + descentimage))
-        navigator.locateDescentImageInReferenceImage(datapath + "TRN/" + descentimage)
-    # craterdetector.extractCratersWithImage(Image.open(datapath + "TRN/Angle1.ppm"))
+if (args == 1 or args == 0):
+	navigator = Navigator(referenceAltitude, referenceMap, referenceCatalogue, datapath)
+	for descentimage in defaultDescentImages:
+		# craterdetector.extractCratersWithImage(Image.open(datapath + "TRN/" + descentimage))
+		navigator.locateDescentImageInReferenceImage(datapath + "TRN/" + descentimage)
+	# craterdetector.extractCratersWithImage(Image.open(datapath + "TRN/Angle1.ppm"))
 
 else:
-    navigator = Navigator(referenceAltitude, referenceMap, referenceCatalogue, datapath)
-    for descentimage in arguments[1:len(arguments)]:
-        navigator.locateDescentImageInReferenceImage(datapath + "TRN/" + descentimage + ".ppm")
+	navigator = Navigator(referenceAltitude, referenceMap, referenceCatalogue, datapath)
+	for descentimage in arguments[1:len(arguments)]:
+		navigator.locateDescentImageInReferenceImage(datapath + "TRN/" + descentimage + ".ppm")

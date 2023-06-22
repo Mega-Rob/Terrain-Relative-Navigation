@@ -4,12 +4,12 @@ import scipy.cluster.hierarchy as hcluster
 from PIL import Image
 from PIL import ImageChops
 from PIL import ImageDraw
-from scipy import ndimage, random
+from scipy import ndimage #, random
 
-import shownp as viewer
-import EllipseFitter as ellipsefitter
-from Crater import ClusterCrater
-from Crater import Crater
+import src.shownp as viewer
+import src.EllipseFitter as ellipsefitter
+from src.Crater import ClusterCrater
+from src.Crater import Crater
 
 primaryFilterTreshold = 120
 secondaryFilterThreshold = 240
@@ -59,7 +59,8 @@ def retrieveCraterClusters(array):
     sortedclusters = {k: v for k, v in sortedclusters.iteritems() if len(v) > 12}
     ## Uncomment this section to plot the clusters.
     mat = []
-    map(lambda (k, v): map(lambda l: mat.append([l[0], l[1]]), v), sortedclusters.items())
+    # map(lambda (k, v): map(lambda l: mat.append([l[0], l[1]]), v), sortedclusters.items())
+    list(map(lambda item: list(map(lambda l: mat.append([l[0], l[1]]), item[1])), sortedclusters.items()))
     viewer.plotClusters(mat)
     ###
     return reIndexCenterPoints(sortedclusters)

@@ -4,7 +4,7 @@ import math
 import random
 from PIL import ImageDraw
 
-import shownp as viewer
+import src.shownp as viewer
 
 """
 Started on this code but could not get it to work.

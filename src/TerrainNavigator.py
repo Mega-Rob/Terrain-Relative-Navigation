@@ -4,9 +4,9 @@ from PIL import Image
 import numpy as np
 from PIL import ImageDraw
 
-import Preprocessor as preprocessor
-import shownp as viewer
-import CraterDetector as craterDetector
+import src.Preprocessor as preprocessor
+import src.shownp as viewer
+import src.CraterDetector as craterDetector
 
 class Navigator:
     def __init__(self, referenceAltitude, referenceMap, referenceCatalogue, datapath):

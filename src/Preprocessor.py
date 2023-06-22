@@ -1,7 +1,7 @@
 import numpy as np
 
 
-import shownp as viewer
+import src.shownp as viewer
 
 def allCombinationNormVectors(centerpoints):
     """
@@ -30,14 +30,17 @@ def preprocessReferenceImage(catalogue, combinations, datapath):
     """
     referenceCatalogueCenterpoints = extractCenterpoints(viewer.loadData(datapath, catalogue))
     centerpoints = {}
-    map(lambda (k, v): centerpoints.update({k: v}), referenceCatalogueCenterpoints.items())
+    # map(lambda (k, v): centerpoints.update({k: v}), referenceCatalogueCenterpoints.items())
+    for k, v in referenceCatalogueCenterpoints.items():
+        centerpoints[k] = v
     allPossibleCombinations = allCombinationNormVectors(centerpoints)
     viewer.saveData(datapath, allPossibleCombinations, combinations)
 
 
 def extractCenterpoints(craters):
     centerpoints = {}
-    map(lambda (key, crater): centerpoints.update({key:crater.centerpoint}), craters.items())
+    # map(lambda (key, crater): centerpoints.update({key:crater.centerpoint}), craters.items())
+    list(map(lambda item: centerpoints.update({item[0]: item[1].centerpoint}), craters.items()))
     return centerpoints
 
 

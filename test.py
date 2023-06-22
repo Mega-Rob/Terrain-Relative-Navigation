@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw
 
 
 
-im = Image.open("TRN/Scene1.ppm")
+im = Image.open("Scene1.ppm")
 # imagematrix = viewer.RGBToGray(np.asarray(im))
 # viewer.showGray(imagematrix)
 r = 5
