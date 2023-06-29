@@ -1,5 +1,5 @@
-import Image
-import ImageDraw
+from PIL import Image
+from PIL import ImageDraw
 
 from src import EllipseFitter
 
@@ -9,7 +9,7 @@ file = open("Scene1.txt")
 positions = []
 for line in file:
     positions.append(line.split())
-    image = EllipseFitter.draw_thick_point(image, map(float, line.split()))
+    image = EllipseFitter.draw_thick_point(image, list(map(float, line.split())))
 
 image.show()
 

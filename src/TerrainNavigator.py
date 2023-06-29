@@ -80,21 +80,24 @@ class Navigator:
         """
         referenceCenterPoints = preprocessor.extractCenterpoints(referenceCraters)
         descentImageCenterPoints = preprocessor.extractCenterpoints(descentImageCraters)
-        # verificationcraters = [random.choice(list(descentImageCraters.items())) for k in range(0,3)]
-        # verificationcraters = [list(descentImageCraters.items()[k]) for k in [1,3,4]]
-        verificationcraters = [list(list(descentImageCraters.items())[k]) for k in [1, 3, 4]]
+        verificationcraters = [random.choice(list(descentImageCraters.items())) for k in range(0,3)]
+        # verificationcraters = [list(list(descentImageCraters.items())[k]) for k in [1, 3, 4]]
 
         foundreferencecraters = []
         scale = 0
+        # add counter to account for number of craters exploited
+        crater_counter = 0
         for descentkey, crater in verificationcraters:
             smallSet = self.oneCombinationUnitVector(crater.centerpoint, descentImageCenterPoints)
             for (referencekey, values) in allPossibleCombinations.items():
                 if (self.isSubsetOf(smallSet, values, 0.1)):
                     foundreferencecraters.append(referenceCenterPoints[referencekey])
                     scale = scale + descentImageCraters[descentkey].diameter/referenceCraters[referencekey].diameter
+                    crater_counter += 1
                     break
-        s = scale/3
-        lowerleftpoint, lowerrightpoint, upperleftpoint, upperrightpoint = self.findViewingRectangle(
+        # s = scale/3
+        s = scale/crater_counter
+        lowerleftpoint, lowerrightpoint,  upperleftpoint, upperrightpoint = self.findViewingRectangle(
             foundreferencecraters, s, verificationcraters)
         middlepoint = (upperleftpoint + lowerleftpoint + upperrightpoint + lowerrightpoint) / 4
         self.drawDescentImageOnReferenceImage(upperleftpoint, upperrightpoint, lowerleftpoint, lowerrightpoint,
@@ -113,8 +116,6 @@ class Navigator:
         lowerrightpoint = np.array([0,0])
         upperrightpoint = np.array([0,0])
         lowerleftpoint = np.array([0,0])
-        # print("-- foundreferencecraters lenght : ", len(foundreferencecraters))
-        # for i in range(0, 3):
         for i in range(len(foundreferencecraters)):
             verificationcrater = verificationcraters[i][1].centerpoint
             referencecrater = foundreferencecraters[i]

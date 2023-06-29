@@ -68,5 +68,3 @@ def draw_thick_point(im, xy):
         for y in range(j-2, j+1):
             draw.point([x,y], fill='#31ff00')
     return im
-
-
