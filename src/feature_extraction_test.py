@@ -1,29 +1,89 @@
-import cv2
+from __future__ import print_function
+import cv2 as cv
 import numpy as np
+import argparse
+import random as rng
 
-# Load the image
-img = cv2.imread('/Users/meha/PycharmProjects/Terrain-Relative-Navigation/data/TRN/Image2.jpeg')
+rng.seed(12345)
 
-# Convert the image to gray scale
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+def thresh_callback(val):
+    threshold = val
 
-# Use thresholding to create binary image
-_, thresh = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
+    ## [Canny]
+    # Detect edges using Canny
+    canny_output = cv.Canny(src_gray, threshold, threshold * 2)
+    ## [Canny]
 
-# Find contours in the image
-contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    ## [Blur]
+    # Blur image
+    blur_output = cv.blur(canny_output,(5,5))
+    ## [Blur]
 
-# For each contour, find the minimum enclosing circle
-for cnt in contours:
-    (x, y), radius = cv2.minEnclosingCircle(cnt)
-    center = (int(x), int(y))
-    radius = int(radius)
+    ## [findContours]
+    # Find contours
+    contours, hierarchyd = cv.findContours(blur_output, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    ## [findContours]
 
-    # If the radius meets a certain criteria (e.g. larger than 10), draw the circle
-    if radius > 100:
-        cv2.circle(img, center, radius, (0, 255, 0), 2)
+    ## [allthework]
+    # Approximate contours to polygons + get bounding rects and circles
+    contours_poly = [None]*len(contours)
+    boundRect = [None]*len(contours)
+    centers = [None]*len(contours)
+    radius = [None]*len(contours)
+    for i, c in enumerate(contours):
+        contours_poly[i] = cv.approxPolyDP(c, 3, True)
+        boundRect[i] = cv.boundingRect(contours_poly[i])
+        centers[i], radius[i] = cv.minEnclosingCircle(contours_poly[i])
+    ## [allthework]
 
-# Display the image with detected objects
-cv2.imshow('Object Detection', img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+    ## [zeroMat]
+    drawing = np.zeros((canny_output.shape[0], canny_output.shape[1], 3), dtype=np.uint8)
+    ## [zeroMat]
+
+    ## [forContour]
+    # Draw polygonal contour + bonding rects + circles
+    for i in range(len(contours)):
+        color = (rng.randint(0,256), rng.randint(0,256), rng.randint(0,256))
+        # cv.drawContours(drawing, contours_poly, i, color)
+        # cv.rectangle(drawing, (int(boundRect[i][0]), int(boundRect[i][1])), \
+        #   (int(boundRect[i][0]+boundRect[i][2]), int(boundRect[i][1]+boundRect[i][3])), color, 2)
+        cv.circle(drawing, (int(centers[i][0]), int(centers[i][1])), int(radius[i]), color, 2)
+    ## [forContour]
+
+    ## [showDrawings]
+    # Show in a window
+    cv.imshow('Contours', drawing)
+    ## [showDrawings]
+
+## [setup]
+# Load source image
+# parser = argparse.ArgumentParser(description='Code for Creating Bounding boxes and circles for contours tutorial.')
+# parser.add_argument('--input', help='Path to input image.', default='stuff.jpg')
+# args = parser.parse_args()
+#
+# src = cv.imread(cv.samples.findFile(args.input))
+
+src = cv.imread("/Users/meha/PycharmProjects/Terrain-Relative-Navigation/data/TRN/Image.jpeg")
+if src is None:
+    print('Could not open or find the image:')
+    exit(0)
+
+# Convert image to gray and blur it
+src_gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
+src_gray = cv.blur(src_gray, (3,3))
+## [setup]
+
+## [createWindow]
+# Create Window
+source_window = 'Source'
+cv.namedWindow(source_window)
+cv.imshow(source_window, src)
+## [createWindow]
+## [trackbar]
+max_thresh = 255
+thresh = 200 # initial threshold
+# cv.createTrackbar('Canny thresh:', source_window, thresh, max_thresh, thresh_callback)
+thresh_callback(thresh)
+## [trackbar]
+
+cv.waitKey()

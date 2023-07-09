@@ -18,7 +18,7 @@ class Navigator:
         :param referenceMap: The name of the reference map.
         :param referenceCatalogue: The catalogue of the reference image. This contains all the centerpoints of all the craters
         and their diameters.
-        """
+          """
         self.datapath = datapath
         self.referenceAltitude = referenceAltitude
         self.referenceMap = referenceMap
@@ -97,6 +97,7 @@ class Navigator:
                     break
         # s = scale/3
         s = scale/crater_counter
+        print("crater_counter : ", crater_counter)
         lowerleftpoint, lowerrightpoint,  upperleftpoint, upperrightpoint = self.findViewingRectangle(
             foundreferencecraters, s, verificationcraters)
         middlepoint = (upperleftpoint + lowerleftpoint + upperrightpoint + lowerrightpoint) / 4
@@ -116,7 +117,9 @@ class Navigator:
         lowerrightpoint = np.array([0,0])
         upperrightpoint = np.array([0,0])
         lowerleftpoint = np.array([0,0])
-        for i in range(len(foundreferencecraters)):
+        nbr_founf_ref_craters = len(foundreferencecraters)
+        print("nbr_founf_ref_craters - Terrain navigator : ", nbr_founf_ref_craters )
+        for i in range(nbr_founf_ref_craters):
             verificationcrater = verificationcraters[i][1].centerpoint
             referencecrater = foundreferencecraters[i]
             r = np.array([referencecrater[0], referencecrater[1]])
@@ -125,10 +128,10 @@ class Navigator:
             lowerrightpoint = lowerrightpoint + [r[0] + (512 - v[0]) / s, r[1] + (512 - v[1]) / s]
             upperrightpoint = upperrightpoint + [r[0] + (512 - v[0]) / s, r[1] - v[1] / s]
             lowerleftpoint = lowerleftpoint + [r[0] - v[0] / s, r[1] + (512 - v[1]) / s]
-        upperrightpoint = upperrightpoint/3
-        lowerrightpoint = lowerrightpoint/3
-        upperleftpoint = upperleftpoint/3
-        lowerleftpoint = lowerleftpoint/3
+        upperrightpoint = upperrightpoint/nbr_founf_ref_craters
+        lowerrightpoint = lowerrightpoint/nbr_founf_ref_craters
+        upperleftpoint = upperleftpoint/nbr_founf_ref_craters
+        lowerleftpoint = lowerleftpoint/nbr_founf_ref_craters
         return lowerleftpoint, lowerrightpoint, upperleftpoint, upperrightpoint
 
     def isSubsetOf(self, smallSet, values, threshold):

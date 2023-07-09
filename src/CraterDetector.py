@@ -176,10 +176,10 @@ def trim(im):
 def correlateClusters(clusters1, clusters2, draw):
     clusters1 = map(lambda x: ClusterCrater(x[0], x[1]), clusters1.items())
     clusters2 = map(lambda x: ClusterCrater(x[0], x[1]), clusters2.items())
-    # for cluster in clusters1:
-    cluster = clusters1[4]
-    for secondcluster in clusters2:
-        draw.line((cluster.centerpoint[0], cluster.centerpoint[1], secondcluster.centerpoint[0], secondcluster.centerpoint[1]), fill = 128, width=1)
+    for cluster in clusters1:
+    # cluster = clusters1[4]
+        for secondcluster in clusters2:
+            draw.line((cluster.centerpoint[0], cluster.centerpoint[1], secondcluster.centerpoint[0], secondcluster.centerpoint[1]), fill = 128, width=1)
 
 
 

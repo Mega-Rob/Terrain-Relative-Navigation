@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="Working">
-      <change afterPath="$PROJECT_DIR$/src/feature_extraction_test.py" afterDir="false" />
+    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="Improved precision in TRN - Work to continue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DetectionRater.py" beforeDir="false" afterPath="$PROJECT_DIR$/DetectionRater.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EllipseFitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/EllipseFitter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CraterDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/CraterDetector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TerrainNavigator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/TerrainNavigator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature_extraction_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature_extraction_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +300,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Main">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,6 +319,28 @@
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <method />
+    </configuration>
+    <configuration name="CraterDetector" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CraterDetector" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/CraterDetector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CraterDetector" />
@@ -343,9 +364,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="feature_extraction_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CraterDetector" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/feature_extraction_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Main" />
+        <item itemvalue="Python.feature_extraction_test" />
+        <item itemvalue="Python.CraterDetector" />
       </list>
     </recent_temporary>
   </component>
@@ -370,7 +415,17 @@
       <workItem from="1687632131717" duration="11036000" />
       <workItem from="1687785889000" duration="1051000" />
       <workItem from="1688034224039" duration="1465000" />
-      <workItem from="1688065318811" duration="1016000" />
+      <workItem from="1688065318811" duration="2280000" />
+      <workItem from="1688104585624" duration="1954000" />
+      <workItem from="1688159038407" duration="604000" />
+      <workItem from="1688648889065" duration="1698000" />
+      <workItem from="1688653113793" duration="1073000" />
+      <workItem from="1688723174378" duration="3971000" />
+      <workItem from="1688817443012" duration="599000" />
+      <workItem from="1688848979488" duration="598000" />
+      <workItem from="1688897154436" duration="1747000" />
+      <workItem from="1688923050170" duration="654000" />
+      <workItem from="1688935019820" duration="1003000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed errors">
       <created>1687432145956</created>
@@ -386,7 +441,15 @@
       <option name="project" value="LOCAL" />
       <updated>1687441865974</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Improved precision in TRN - Work to continue">
+      <option name="closed" value="true" />
+      <created>1688066592184</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688066592184</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -439,7 +502,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed errors" />
     <MESSAGE value="Working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working" />
+    <MESSAGE value="Improved precision in TRN - Work to continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved precision in TRN - Work to continue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -461,12 +525,12 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$EllipseFitter.coverage" NAME="EllipseFitter Coverage Results" MODIFIED="1687681877857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py_Scene1.coverage" NAME="python Main.py Scene1 Coverage Results" MODIFIED="1687448492537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$feature_extraction_test.coverage" NAME="feature_extraction_test Coverage Results" MODIFIED="1688034670107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$feature_extraction_test.coverage" NAME="feature_extraction_test Coverage Results" MODIFIED="1688897447390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$DetectionRater.coverage" NAME="DetectionRater Coverage Results" MODIFIED="1687682201614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$CraterDetector.coverage" NAME="CraterDetector Coverage Results" MODIFIED="1686175439745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$CraterDetector.coverage" NAME="CraterDetector Coverage Results" MODIFIED="1688649232814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py.coverage" NAME="python Main.py Coverage Results" MODIFIED="1686257216069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$test.coverage" NAME="test Coverage Results" MODIFIED="1686257372031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1688065866554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1688935892122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/NeuralNetwork/data/centroidin">
