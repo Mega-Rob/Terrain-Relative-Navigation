@@ -48,7 +48,7 @@ def drawFoundCraters(sortedclusters, imagematrix, im):
         distance, fartestpoints = viewer.searchForFartestPoint(edgecluster) #Search for fartestpoint in cluster for diameter determination.
         # viewer.drawpoint(draw, (fartestpoints[0][1],fartestpoints[0][0]), 6)
         # viewer.drawpoint(draw, fartestpoints[0], 6)
-        semiMajorAxis = 1.34 * distance
+        semiMajorAxis = 1 * distance
         a = semiMajorAxis / 2
         x, y = viewer.calculateMiddlePoint(semiMajorAxis, fartestpoints)
 
