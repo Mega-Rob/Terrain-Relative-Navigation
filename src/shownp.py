@@ -58,6 +58,7 @@ def showGray(img):
     ax.matshow(img, cmap=matplotlib.cm.binary)
     plt.xticks(np.array([]))
     plt.yticks(np.array([]))
+    plt.title("Image from showGray")
     plt.show()
 
 
@@ -95,8 +96,8 @@ def plotClusters(mat):
     # plt.show()
 
 def calculateMiddlePoint(diameter, fartestpoints):
-    x = ((fartestpoints[0][0] + fartestpoints[1][0]) / 2) - diameter / 8
-    y = ((fartestpoints[0][1] + fartestpoints[1][1]) / 2) + diameter / 4
+    x = ((fartestpoints[0][0] + fartestpoints[1][0]) / 2) #- diameter / 8
+    y = ((fartestpoints[0][1] + fartestpoints[1][1]) / 2) #+ diameter / 4
     return y, x
 
 
