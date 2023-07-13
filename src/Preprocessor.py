@@ -12,29 +12,35 @@ def allCombinationNormVectors(centerpoints):
     """
     allcombinationnormvectors = {}
     for (k, point) in centerpoints.items():
+        # print(type(point), point)
         allcombinationnormvectors[k] = []
         for (k2, point2) in centerpoints.items():
-            if (point[0] == point2[0] and point[1] == point2[1]):
+            # print(type(point2), point2)
+            if point[0] == point2[0] and point[1] == point2[1]:
                 continue
             else:
                 vect = (point2 - point) / np.linalg.norm(point2 - point)
                 allcombinationnormvectors[k].append(vect)
+    print("all combination norm vector completed")
     return allcombinationnormvectors
 
-def preprocessReferenceImage(catalogue, combinations, datapath):
+
+def preprocessReferenceImage(refImageCraters):
+    # def preprocessReferenceImage(catalogue, combinations, datapath):
     """
     Loads data from a given catalogue file and computes the combinations of unit vectors of each crater.
     :param catalogue: String indicating which file to load the data catalogue from.
     :param combinations: String to store the found combinations in.
     :return: None
     """
-    referenceCatalogueCenterpoints = extractCenterpoints(viewer.loadData(datapath, catalogue))
+    # referenceCatalogueCenterpoints = extractCenterpoints(viewer.loadData(datapath, catalogue))
+    referenceCatalogueCenterpoints = extractCenterpoints(refImageCraters)
     centerpoints = {}
-    # map(lambda (k, v): centerpoints.update({k: v}), referenceCatalogueCenterpoints.items())
     for k, v in referenceCatalogueCenterpoints.items():
         centerpoints[k] = v
     allPossibleCombinations = allCombinationNormVectors(centerpoints)
-    viewer.saveData(datapath, allPossibleCombinations, combinations)
+    return allPossibleCombinations
+    # viewer.saveData(datapath, allPossibleCombinations, combinations)
 
 
 def extractCenterpoints(craters):

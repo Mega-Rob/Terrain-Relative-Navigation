@@ -24,7 +24,7 @@ class Navigator:
         self.referenceMap = referenceMap
         self.referenceCatalogue = referenceCatalogue
         self.referenceCombinations = referenceCatalogue + "Combinations"
-        preprocessor.preprocessReferenceImage(self.referenceCatalogue, self.referenceCombinations, datapath)
+        # preprocessor.preprocessReferenceImage(self.referenceCatalogue, self.referenceCombinations, datapath)
 
     def oneCombinationUnitVector(self, point, centerpoints):
         """
@@ -181,20 +181,31 @@ class Navigator:
         :param imagename: the descent image which needs to be located in the reference map.
         :return: None
         """
+
+        ## Reference Image
+
+        im_ref = Image.open(self.datapath + "TRN/" + self.referenceMap)
+        refImageCraters = craterDetector.extractCraters(im_ref)
         # referenceCraters = viewer.loadData(self.datapath, self.referenceCatalogue)
-        # print("reference craters")
-        # print(referenceCraters)
-        # print("------------------")
+        print("reference craters")
+        print(refImageCraters)
+        print("------------------")
+
         # allPossibleCombinations = viewer.loadData(self.datapath, self.referenceCombinations)
-        # print("all possible combinations")
-        # print(allPossibleCombinations)
-        # print("------------------")
+        print("all possible combinations computation stared")
+        allPossibleCombinations = preprocessor.preprocessReferenceImage(refImageCraters)
+        print("all possible combinations")
+        print(allPossibleCombinations)
+        print("------------------")
         # reference_catalogue = viewer.loadData("referenceCatalogue")
         # centerpoints = preprocessor.extractCenterpoints(reference_catalogue)
+
+
+        ## Local image
         im = Image.open(imagename)
         descentImageCraters = craterDetector.extractCraters(im)
         print("descent image craters")
         print(descentImageCraters)
         print("------------------")
-        # self.executePatternRecognition(allPossibleCombinations, referenceCraters, descentImageCraters)
+        self.executePatternRecognition(allPossibleCombinations, refImageCraters, descentImageCraters)
 

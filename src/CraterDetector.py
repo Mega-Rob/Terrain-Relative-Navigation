@@ -27,11 +27,11 @@ def applyPrimaryIlluminationFilter(im):
     """
     global primaryFilterTreshold
     array = []
-    print("im size : ", im.size)
-    # imagematrix = viewer.RGBToGray(np.asarray(im))
+    # print("im size : ", im.size)
+    # imagematrix = viewer.RGBToGray(np.asarray(im)) # convert color to grayscale
     imagematrix = np.asarray(im)
     imagematrix_copy = np.copy(imagematrix)
-    print("im matrix size : ", imagematrix_copy.shape)
+    # print("im matrix size : ", imagematrix_copy.shape)
     for i in range(0, imagematrix_copy.shape[0] - 1):
         for j in range(0, imagematrix_copy.shape[1] - 1):
 
@@ -53,11 +53,11 @@ def retrieveCraterClusters(array):
     :return: hashmap of all the clusters sorted by index.
     """
     mat = np.array(array)
-    print("mat size : ", mat.size)
+    # print("mat size : ", mat.size)
     thresh = 5.5
     clusters = hcluster.fclusterdata(mat, thresh, criterion="distance")
     sortedclusters = {}
-    print("nbr clusters : ", len(clusters))
+    # print("nbr clusters : ", len(clusters))
     for i in range(0, len(clusters) - 1):
         if clusters[i] in sortedclusters.keys():
             sortedclusters[clusters[i]].append(mat[i])
@@ -115,13 +115,13 @@ def extractCraters(im):
     :param im: image that needs to be processed and retrieve respective diameters.
     :return: centerpoint and the diameters of all the craters in the given image.
     """
-    print("applyPrimaryIlluminationFilter")
+    # print("applyPrimaryIlluminationFilter")
     array, imagematrix = applyPrimaryIlluminationFilter(im)
-    print("retrieveCraterClusters")
+    # print("retrieveCraterClusters")
     sortedclusters = retrieveCraterClusters(array)
-    print("retrieveAllClusterCenterPoints")
+    # print("retrieveAllClusterCenterPoints")
     craters = retrieveAllClusterCenterPoints(sortedclusters, imagematrix)
-    print("drawFoundCraters")
+    # print("drawFoundCraters")
     ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
     print("extractCraters Finished")
     return craters
