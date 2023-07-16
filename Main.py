@@ -1,6 +1,6 @@
 from src.TerrainNavigator import Navigator
 
-referenceAltitude = 2000 #2000
+referenceAltitude = 1 #2000
 
 datapath = "../data/"
 referenceMap = "resized_inverted_image.png"

@@ -55,7 +55,7 @@ class Navigator:
         :param middlepoint: Exact location of the lander on the reference image.
         :return: Null
         """
-        refimage = Image.open(self.datapath + "TRN/ReferenceMap.ppm")
+        refimage = Image.open(self.datapath + "TRN/" + self.referenceMap)
         # font = ImageFont.truetype("sans-serif.ttf", 14)
         draw = ImageDraw.Draw(refimage)
         draw.line((upperleftpoint[0], upperleftpoint[1], upperrightpoint[0], upperrightpoint[1]), fill = '#31ff00', width=2)
@@ -65,7 +65,7 @@ class Navigator:
         draw.line((middlepoint[0], middlepoint[1]-1, middlepoint[0], middlepoint[1]+1), fill ='#31ff00', width= 12)
         draw.line((middlepoint[0]-1, middlepoint[1], middlepoint[0]+1, middlepoint[1]), fill ='#31ff00', width= 12)
         text = "The lander is located at {} and it's altitude is {} km".format(middlepoint, round((1/s)*20, 2))
-        draw.text((0, 0), text, (20, 86, 169))
+        # draw.text((0, 0), text, (20, 86, 169))
         refimage.show()
 
 
@@ -80,7 +80,7 @@ class Navigator:
         """
         referenceCenterPoints = preprocessor.extractCenterpoints(referenceCraters)
         descentImageCenterPoints = preprocessor.extractCenterpoints(descentImageCraters)
-        verificationcraters = [random.choice(list(descentImageCraters.items())) for k in range(0,4)]
+        verificationcraters = [random.choice(list(descentImageCraters.items())) for k in range(0,2)]
         # verificationcraters = [list(list(descentImageCraters.items())[k]) for k in [1, 3, 4]]
 
         foundreferencecraters = []
@@ -96,11 +96,12 @@ class Navigator:
                     crater_counter += 1
                     break
         # s = scale/3
-        s = scale/crater_counter
+        s = 2 * scale/crater_counter
         print("crater_counter : ", crater_counter)
         lowerleftpoint, lowerrightpoint,  upperleftpoint, upperrightpoint = self.findViewingRectangle(
             foundreferencecraters, s, verificationcraters)
         middlepoint = (upperleftpoint + lowerleftpoint + upperrightpoint + lowerrightpoint) / 4
+        print("centre point : ", middlepoint)
         self.drawDescentImageOnReferenceImage(upperleftpoint, upperrightpoint, lowerleftpoint, lowerrightpoint,
                                                   middlepoint, s)
         return middlepoint
