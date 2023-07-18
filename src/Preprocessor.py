@@ -21,7 +21,7 @@ def allCombinationNormVectors(centerpoints):
             else:
                 vect = (point2 - point) / np.linalg.norm(point2 - point)
                 allcombinationnormvectors[k].append(vect)
-    print("all combination norm vector completed")
+    # print("all combination norm vector completed")
     return allcombinationnormvectors
 
 

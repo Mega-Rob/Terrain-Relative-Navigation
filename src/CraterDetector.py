@@ -28,14 +28,14 @@ def applyPrimaryIlluminationFilter(im):
     global primaryFilterTreshold
     array = []
     # print("im size : ", im.size)
-    # imagematrix = viewer.RGBToGray(np.asarray(im)) # convert color to grayscale
-    imagematrix = np.asarray(im)
+    imagematrix = viewer.RGBToGray(np.asarray(im)) # convert color to grayscale
+    # imagematrix = np.asarray(im)
     imagematrix_copy = np.copy(imagematrix)
     # print("im matrix size : ", imagematrix_copy.shape)
     for i in range(0, imagematrix_copy.shape[0] - 1):
         for j in range(0, imagematrix_copy.shape[1] - 1):
 
-            if imagematrix_copy[i, j] > primaryFilterTreshold:  # CHANGED SIGN
+            if imagematrix_copy[i, j] < primaryFilterTreshold:  # CHANGED SIGN
                 imagematrix_copy[i, j] = 0
                 array.append([i, j])
             else:
@@ -55,7 +55,11 @@ def retrieveCraterClusters(array):
     mat = np.array(array)
     # print("mat size : ", mat.size)
     thresh = 5.5
+    start_time = timeit.default_timer()
     clusters = hcluster.fclusterdata(mat, thresh, criterion="distance")
+    end_time = timeit.default_timer()
+    execution_time = end_time - start_time
+    print(f"clustering executed in: {execution_time} seconds")
     sortedclusters = {}
     # print("nbr clusters : ", len(clusters))
     for i in range(0, len(clusters) - 1):
@@ -122,8 +126,8 @@ def extractCraters(im):
     # print("retrieveAllClusterCenterPoints")
     craters = retrieveAllClusterCenterPoints(sortedclusters, imagematrix)
     # print("drawFoundCraters")
-    ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
-    print("extractCraters Finished")
+    # ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
+    # print("extractCraters Finished")
     return craters
 
 def extractCratersWithImage(im):
