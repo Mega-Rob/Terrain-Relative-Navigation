@@ -1,38 +1,44 @@
-# from matplotlib import pyplot as plt
-# from scipy.cluster.hierarchy import dendrogram, linkage
-# import numpy as np
-# # %matplotlib inline
-# np.random.seed(4711)  # for repeatability of this tutorial
-# a = np.random.multivariate_normal([10, 0], [[3, 1], [1, 4]], size=[100,])
-# b = np.random.multivariate_normal([0, 20], [[3, 1], [1, 4]], size=[50,])
-# X = np.concatenate((a, b),)
-# print X.shape  # 150 samples with 2 dimensions
-# plt.scatter(X[:,0], X[:,1])
-# print X
-# plt.show()
+import cv2
+from matplotlib import pyplot as plt
+import numpy as np
 
-from PIL import Image, ImageDraw
+# Load the new image
+new_image_path = '/Users/meha/Downloads/66467659-rocky-beach-with-sand-and-pebbles.jpg'
+new_image = cv2.imread(new_image_path)
 
+if new_image is None:
+	print(f"Failed to load image at {new_image_path}")
+else:
+	# Convert the image to HSV color space
+	hsv_image = cv2.cvtColor(new_image, cv2.COLOR_BGR2HSV)
 
+	# Define range of sand color in HSV
+	lower_sand = np.array([10, 100, 20])
+	upper_sand = np.array([25, 255, 255])
 
-im = Image.open("Scene1.ppm")
-# imagematrix = viewer.RGBToGray(np.asarray(im))
-# viewer.showGray(imagematrix)
-r = 5
-y = 91
-x = 365
-y2 = 237
-x2 = 275
-x3 = 258
-y3 = 246
-bbox =  (x - r, y - r, x + r , y + r)
-bbox2 =  (x2 - r, y2 - r, x2 + r , y2 + r)
-bbox3 =  (x3 - r, y3 - r, x3 + r , y3 + r)
-draw = ImageDraw.Draw(im)
-draw.ellipse(bbox, fill=200, outline=128)
-draw.ellipse(bbox2, fill=200, outline=128)
-draw.ellipse(bbox3, fill=0, outline=128)
-del draw
+	# Threshold the HSV image to get only sand colors
+	sand_mask = cv2.inRange(hsv_image, lower_sand, upper_sand)
 
-im.save("output.png")
-im.show()
+	# Bitwise-AND mask and original image
+	res = cv2.bitwise_and(new_image, new_image, mask=sand_mask)
+
+	# Invert the mask to get the non-sand parts
+	non_sand_mask = cv2.bitwise_not(sand_mask)
+	non_sand = cv2.bitwise_and(new_image, new_image, mask=non_sand_mask)
+
+	# Convert the new image to RGB (from BGR)
+	non_sand_rgb = cv2.cvtColor(non_sand, cv2.COLOR_BGR2RGB)
+
+	# Plotting the original image and the image without sand
+	fig, axs = plt.subplots(1, 2, figsize=(15, 15))
+
+	# Display the images
+	axs[0].imshow(new_image)
+	axs[0].set_title('Original Image')
+	axs[0].axis('off')
+
+	axs[1].imshow(non_sand_rgb)
+	axs[1].set_title('Image without Sand')
+	axs[1].axis('off')
+
+	plt.show()

@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="one working">
+    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="work in progress - fine tuning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CraterDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/CraterDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Preprocessor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TerrainNavigator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/TerrainNavigator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/output.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shownp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shownp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +280,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -410,9 +405,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CraterDetector" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Main" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.DetectionRater" />
         <item itemvalue="Python.feature_extraction_test" />
         <item itemvalue="Python.CraterDetector" />
@@ -458,7 +476,16 @@
       <workItem from="1689504179636" duration="2680000" />
       <workItem from="1689548412343" duration="2921000" />
       <workItem from="1689619154104" duration="2587000" />
-      <workItem from="1689626815309" duration="11665000" />
+      <workItem from="1689626815309" duration="13708000" />
+      <workItem from="1689780416082" duration="105000" />
+      <workItem from="1689852204562" duration="4737000" />
+      <workItem from="1690102474428" duration="1571000" />
+      <workItem from="1690236780876" duration="114000" />
+      <workItem from="1690279578721" duration="2024000" />
+      <workItem from="1690364116832" duration="1261000" />
+      <workItem from="1690536911822" duration="130000" />
+      <workItem from="1690542146064" duration="1313000" />
+      <workItem from="1690736031147" duration="714000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed errors">
       <created>1687432145956</created>
@@ -522,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689507548744</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="work in progress - fine tuning">
+      <option name="closed" value="true" />
+      <created>1689709156351</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689709156351</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -591,7 +626,8 @@
     <MESSAGE value="simplyfication in progress, trying won image" />
     <MESSAGE value="all but pattern recognition works" />
     <MESSAGE value="one wokring" />
-    <option name="LAST_COMMIT_MESSAGE" value="one wokring" />
+    <MESSAGE value="work in progress - fine tuning" />
+    <option name="LAST_COMMIT_MESSAGE" value="work in progress - fine tuning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -617,8 +653,8 @@
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$DetectionRater.coverage" NAME="DetectionRater Coverage Results" MODIFIED="1688936791868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$CraterDetector.coverage" NAME="CraterDetector Coverage Results" MODIFIED="1688649232814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py.coverage" NAME="python Main.py Coverage Results" MODIFIED="1686257216069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$test.coverage" NAME="test Coverage Results" MODIFIED="1686257372031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1689683994544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$test.coverage" NAME="test Coverage Results" MODIFIED="1689864999665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1690544579168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/NeuralNetwork/data/centroidin">
