@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="work in progress - fine tuning">
+    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="push images">
+      <change afterPath="$PROJECT_DIR$/opencv_trn.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -486,6 +486,9 @@
       <workItem from="1690536911822" duration="130000" />
       <workItem from="1690542146064" duration="1313000" />
       <workItem from="1690736031147" duration="714000" />
+      <workItem from="1690739291111" duration="635000" />
+      <workItem from="1690794349368" duration="20000" />
+      <workItem from="1690794410932" duration="902000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed errors">
       <created>1687432145956</created>
@@ -557,7 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689709156351</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="push images">
+      <option name="closed" value="true" />
+      <created>1690739326995</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690739326995</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -627,7 +638,8 @@
     <MESSAGE value="all but pattern recognition works" />
     <MESSAGE value="one wokring" />
     <MESSAGE value="work in progress - fine tuning" />
-    <option name="LAST_COMMIT_MESSAGE" value="work in progress - fine tuning" />
+    <MESSAGE value="push images" />
+    <option name="LAST_COMMIT_MESSAGE" value="push images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
