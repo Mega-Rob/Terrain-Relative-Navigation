@@ -97,18 +97,18 @@ class Navigator:
                     # scale = scale + descentImageCraters[descentkey].diameter/referenceCraters[referencekey].diameter
                     # crater_counter += 1
                     break
-        s = 1 #* scale/crater_counter
+        s = 1/3 #* scale/crater_counter
         print("Reference centre points")
         print(referenceCenterPoints)
         print("\n")
         print("Descent image centre points")
         print(descentImageCenterPoints)
-        # descentImageCenterPoints.pop(1)
-        # print(descentImageCenterPoints)
-        descentImageCenterPoints2 = descentImageCenterPoints
-        for key in descentImageCenterPoints2:
-            descentImageCenterPoints2[key] = descentImageCenterPoints2[key] + [256, 256]
-        print(descentImageCenterPoints2)
+        # # descentImageCenterPoints.pop(1)
+        # # print(descentImageCenterPoints)
+        # descentImageCenterPoints2 = descentImageCenterPoints
+        # for key in descentImageCenterPoints2:
+        #     descentImageCenterPoints2[key] = descentImageCenterPoints2[key] + [256, 256]
+        # print(descentImageCenterPoints2)
         print("\n")
         print("verification craters")
         print(verificationcraters)
@@ -143,8 +143,8 @@ class Navigator:
             referencecrater = foundreferencecraters[i]
             r = np.array([referencecrater[0], referencecrater[1]])
             v = np.array([verificationcrater[0], verificationcrater[1]])
-            x_img = 256
-            y_img = 256
+            x_img = 1440
+            y_img = 960
             upperleftpoint = upperleftpoint + (r - (v / s))
             lowerrightpoint = lowerrightpoint + [r[0] + (x_img - v[0]) / s, r[1] + (y_img - v[1]) / s]
             upperrightpoint = upperrightpoint + [r[0] + (x_img - v[0]) / s, r[1] - v[1] / s]

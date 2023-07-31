@@ -11,7 +11,7 @@ import src.EllipseFitter as ellipsefitter
 from src.Crater import ClusterCrater
 from src.Crater import Crater
 
-primaryFilterTreshold = 120
+primaryFilterTreshold = 200
 secondaryFilterThreshold = 240
 
 
@@ -35,7 +35,7 @@ def applyPrimaryIlluminationFilter(im):
     for i in range(0, imagematrix_copy.shape[0] - 1):
         for j in range(0, imagematrix_copy.shape[1] - 1):
 
-            if imagematrix_copy[i, j] < primaryFilterTreshold:  # CHANGED SIGN
+            if imagematrix_copy[i, j] >= primaryFilterTreshold:  # CHANGED SIGN
                 imagematrix_copy[i, j] = 0
                 array.append([i, j])
             else:
@@ -94,7 +94,7 @@ def reIndexCenterPoints(centerpoints):
 def retrieveAllClusterCenterPoints(sortedclusters, imagematrix):
     """
     Processes the clusters and returns list of all the centerpoints of the craters found in an image.
-    :param sortedclusters: Clusters found on a the image
+    :param sortedclusters: Clusters found on the image
     :param imagematrix: original image in matrix form
     :return: return all the centerpoints and initial diameters of the
     """

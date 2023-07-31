@@ -59,7 +59,7 @@ def showGray(img):
     plt.xticks(np.array([]))
     plt.yticks(np.array([]))
     plt.title("Image from showGray")
-    # plt.show()
+    plt.show()
 
 
 def saveData(datapath, allCombinations, file):

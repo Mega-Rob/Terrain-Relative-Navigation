@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="push images">
-      <change afterPath="$PROJECT_DIR$/opencv_trn.py" afterDir="false" />
+    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="update directory - clean up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CraterDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/CraterDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TerrainNavigator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/TerrainNavigator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shownp.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/shownp.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +165,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectFrameBounds">
     <option name="y" value="24" />
     <option name="width" value="1366" />
@@ -488,7 +494,10 @@
       <workItem from="1690736031147" duration="714000" />
       <workItem from="1690739291111" duration="635000" />
       <workItem from="1690794349368" duration="20000" />
-      <workItem from="1690794410932" duration="902000" />
+      <workItem from="1690794410932" duration="1350000" />
+      <workItem from="1690798285171" duration="1273000" />
+      <workItem from="1690802694073" duration="888000" />
+      <workItem from="1690843137653" duration="1557000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed errors">
       <created>1687432145956</created>
@@ -568,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690739326995</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update directory - clean up">
+      <option name="closed" value="true" />
+      <created>1690795424992</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690795424992</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -639,7 +656,8 @@
     <MESSAGE value="one wokring" />
     <MESSAGE value="work in progress - fine tuning" />
     <MESSAGE value="push images" />
-    <option name="LAST_COMMIT_MESSAGE" value="push images" />
+    <MESSAGE value="update directory - clean up" />
+    <option name="LAST_COMMIT_MESSAGE" value="update directory - clean up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,14 +677,14 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$EllipseFitter.coverage" NAME="EllipseFitter Coverage Results" MODIFIED="1687681877857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py_Scene1.coverage" NAME="python Main.py Scene1 Coverage Results" MODIFIED="1687448492537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$feature_extraction_test.coverage" NAME="feature_extraction_test Coverage Results" MODIFIED="1688897447390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$DetectionRater.coverage" NAME="DetectionRater Coverage Results" MODIFIED="1688936791868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1690844601543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$CraterDetector.coverage" NAME="CraterDetector Coverage Results" MODIFIED="1688649232814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py.coverage" NAME="python Main.py Coverage Results" MODIFIED="1686257216069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py_Scene1.coverage" NAME="python Main.py Scene1 Coverage Results" MODIFIED="1687448492537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$test.coverage" NAME="test Coverage Results" MODIFIED="1689864999665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1690544579168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$EllipseFitter.coverage" NAME="EllipseFitter Coverage Results" MODIFIED="1687681877857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py.coverage" NAME="python Main.py Coverage Results" MODIFIED="1686257216069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$DetectionRater.coverage" NAME="DetectionRater Coverage Results" MODIFIED="1688936791868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/NeuralNetwork/data/centroidin">
