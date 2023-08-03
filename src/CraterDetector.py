@@ -11,7 +11,7 @@ import src.EllipseFitter as ellipsefitter
 from src.Crater import ClusterCrater
 from src.Crater import Crater
 
-primaryFilterTreshold = 200
+primaryFilterTreshold = 170
 secondaryFilterThreshold = 240
 
 
@@ -41,7 +41,7 @@ def applyPrimaryIlluminationFilter(im):
             else:
                 imagematrix_copy[i, j] = 255
     # Uncomment this next line of code to view the intermediate result of the filter.
-    viewer.showGray(imagematrix_copy)
+    # viewer.showGray(imagematrix_copy)
     return array, imagematrix_copy
 
 
@@ -54,7 +54,7 @@ def retrieveCraterClusters(array):
     """
     mat = np.array(array)
     # print("mat size : ", mat.size)
-    thresh = 5.5
+    thresh = 10  # 5.5
     start_time = timeit.default_timer()
     clusters = hcluster.fclusterdata(mat, thresh, criterion="distance")
     end_time = timeit.default_timer()
@@ -67,7 +67,7 @@ def retrieveCraterClusters(array):
             sortedclusters[clusters[i]].append(mat[i])
         else:
             sortedclusters[clusters[i]] = [mat[i]]
-    sortedclusters = {k: v for k, v in sortedclusters.items() if len(v) > 12}
+    sortedclusters = {k: v for k, v in sortedclusters.items() if len(v) > 60}
 
     ## Uncomment this section to plot the clusters.
     mat = []

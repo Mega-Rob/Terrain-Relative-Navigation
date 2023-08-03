@@ -44,7 +44,7 @@ class Navigator:
                 unitvectors.append(vect)
         return unitvectors
 
-    def drawDescentImageOnReferenceImage(self, upperleftpoint, upperrightpoint, lowerleftpoint, lowerrightpoint, middlepoint):
+    def drawDescentImageOnReferenceImage(self, upperleftpoint, upperrightpoint, lowerleftpoint, lowerrightpoint, middlepoint, foundreferencecraters, referenceCenterPoints):
         """
         Draws the specified coordinates of the landers location on to the reference map.
         This method is only to be accessed by methods in this module and not intented to be accesed arbitrarily.
@@ -64,8 +64,17 @@ class Navigator:
         draw.line((lowerrightpoint[0], lowerrightpoint[1], upperrightpoint[0], upperrightpoint[1]), fill = '#31ff00', width=2)
         draw.line((middlepoint[0], middlepoint[1]-1, middlepoint[0], middlepoint[1]+1), fill ='#31ff00', width= 12)
         draw.line((middlepoint[0]-1, middlepoint[1], middlepoint[0]+1, middlepoint[1]), fill ='#31ff00', width= 12)
-        # text = "The lander is located at {} and it's altitude is {} km".format(middlepoint, round((1/s)*20, 2))
-        # draw.text((0, 0), text, (20, 86, 169))
+        for crater in foundreferencecraters:
+            draw.line((crater[1], crater[0] - 3, crater[1], crater[0] + 3), fill='#0800ff',
+                      width=15)
+            draw.line((crater[1] - 3, crater[0], crater[1] + 3, crater[0]), fill='#0800ff',
+                      width=15)
+        for ref_crater in referenceCenterPoints.values():
+            draw.line((ref_crater[1], ref_crater[0] - 1, ref_crater[1], ref_crater[0] + 1), fill='#ff0000',
+                      width=12)
+            draw.line((ref_crater[1] - 1, ref_crater[0], ref_crater[1] + 1, ref_crater[0]), fill='#ff0000',
+                      width=12)
+
         refimage.show()
 
 
@@ -80,24 +89,25 @@ class Navigator:
         """
         referenceCenterPoints = preprocessor.extractCenterpoints(referenceCraters)
         descentImageCenterPoints = preprocessor.extractCenterpoints(descentImageCraters)
-        # verificationcraters = [random.choice(list(descentImageCraters.items())) for k in range(0,3)]
         verificationcraters = random.sample(list(descentImageCraters.items()), 3)
 
         # verificationcraters = [list(list(descentImageCraters.items())[k]) for k in [1, 3, 4]]
 
         foundreferencecraters = []
-        # scale = 0
+        scale = 0
         # add counter to account for number of craters exploited
-        # crater_counter = 0
+        crater_counter = 0
         for descentkey, crater in verificationcraters:
             smallSet = self.oneCombinationUnitVector(crater.centerpoint, descentImageCenterPoints)
             for (referencekey, values) in allPossibleCombinations.items():
-                if (self.isSubsetOf(smallSet, values, 0.2)):
+                if (self.isSubsetOf(smallSet, values, 0.12)):
                     foundreferencecraters.append(referenceCenterPoints[referencekey])
-                    # scale = scale + descentImageCraters[descentkey].diameter/referenceCraters[referencekey].diameter
-                    # crater_counter += 1
+                    scale = scale + descentImageCraters[descentkey].diameter/referenceCraters[referencekey].diameter
+                    crater_counter += 1
                     break
-        s = 1/3 #* scale/crater_counter
+        s = scale/crater_counter
+        print("scale : ", s)
+        print("\n")
         print("Reference centre points")
         print(referenceCenterPoints)
         print("\n")
@@ -121,7 +131,7 @@ class Navigator:
         middlepoint = (upperleftpoint + lowerleftpoint + upperrightpoint + lowerrightpoint) / 4
         print("centre point : ", middlepoint)
         self.drawDescentImageOnReferenceImage(upperleftpoint, upperrightpoint, lowerleftpoint, lowerrightpoint,
-                                                  middlepoint)
+                                                  middlepoint, foundreferencecraters, referenceCenterPoints)
         return middlepoint
 
     def findViewingRectangle(self, foundreferencecraters, s, verificationcraters):

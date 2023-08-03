@@ -9,11 +9,11 @@ referenceAltitude = 1
 
 datapath = "../data/"
 
-referenceMap = "referenceMap.jpg"
+referenceMap = "referenceMap2.jpg"
 referenceCatalogue = "finalReferenceCraterData"
 
 # defaultDescentImages = ["scene1_resized.jpg", "scene2_resized.jpg", "scene3_resized.jpg"]
-defaultDescentImages = ["scene1.jpg", "scene2.jpg", "scene3.jpg"]
+defaultDescentImages = ["scene1.jpg"]  # , "scene2.jpg", "scene3.jpg"]
 
 navigator = Navigator(referenceAltitude, referenceMap, referenceCatalogue, datapath)
 for descentimage in defaultDescentImages:
