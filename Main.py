@@ -5,19 +5,19 @@ import cv2
 
 # full_start = timeit.default_timer()
 
-referenceAltitude = 1
+referenceAltitude = 2000
 
 datapath = "../data/"
 
-referenceMap = "referenceMap2.jpg"
+referenceMap = "ReferenceMap.ppm"
 referenceCatalogue = "finalReferenceCraterData"
 
 # defaultDescentImages = ["scene1_resized.jpg", "scene2_resized.jpg", "scene3_resized.jpg"]
-defaultDescentImages = ["scene1.jpg"]  # , "scene2.jpg", "scene3.jpg"]
+defaultDescentImages = ["scene1.ppm"]  # , "scene2.jpg", "scene3.jpg"]
 
 navigator = Navigator(referenceAltitude, referenceMap, referenceCatalogue, datapath)
 for descentimage in defaultDescentImages:
-	navigator.locateDescentImageInReferenceImage(datapath + "TRN/" + descentimage)
+	navigator.locateDescentImageInReferenceImage(datapath + "TRN/Old/" + descentimage)
 	print("-----------------------------------------------------")
 	# input(" press enter ")
 
