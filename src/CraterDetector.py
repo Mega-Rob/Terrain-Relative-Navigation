@@ -11,7 +11,7 @@ import src.EllipseFitter as ellipsefitter
 from src.Crater import ClusterCrater
 from src.Crater import Crater
 
-primaryFilterTreshold = 120
+primaryFilterTreshold = 180
 secondaryFilterThreshold = 240
 
 
@@ -35,13 +35,13 @@ def applyPrimaryIlluminationFilter(im):
     for i in range(0, imagematrix_copy.shape[0] - 1):
         for j in range(0, imagematrix_copy.shape[1] - 1):
 
-            if imagematrix_copy[i, j] <= primaryFilterTreshold:  # CHANGED SIGN
+            if imagematrix_copy[i, j] >= primaryFilterTreshold:  # CHANGED SIGN
                 imagematrix_copy[i, j] = 0
                 array.append([i, j])
             else:
                 imagematrix_copy[i, j] = 255
     # Uncomment this next line of code to view the intermediate result of the filter.
-    viewer.showGray(imagematrix_copy)
+    # viewer.showGray(imagematrix_copy)
     return array, imagematrix_copy
 
 
@@ -67,7 +67,7 @@ def retrieveCraterClusters(array):
             sortedclusters[clusters[i]].append(mat[i])
         else:
             sortedclusters[clusters[i]] = [mat[i]]
-    sortedclusters = {k: v for k, v in sortedclusters.items() if len(v) > 60}
+    sortedclusters = {k: v for k, v in sortedclusters.items() if len(v) > 25}
 
     ## Uncomment this section to plot the clusters.
     mat = []
@@ -128,6 +128,7 @@ def extractCraters(im):
     # print("drawFoundCraters")
     # ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
     # print("extractCraters Finished")
+    ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
     return craters
 
 def extractCratersWithImage(im):

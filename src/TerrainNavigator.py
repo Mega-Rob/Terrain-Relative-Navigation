@@ -56,7 +56,7 @@ class Navigator:
         :param middlepoint: Exact location of the lander on the reference image.
         :return: Null
         """
-        refimage = Image.open(self.datapath + "TRN/Old/" + self.referenceMap)
+        refimage = Image.open(self.datapath + "TRN/" + self.referenceMap)
         # font = ImageFont.truetype("sans-serif.ttf", 14)
         draw = ImageDraw.Draw(refimage)
         draw.line((upperleftpoint[0], upperleftpoint[1], upperrightpoint[0], upperrightpoint[1]), fill = '#31ff00', width=2)
@@ -90,9 +90,7 @@ class Navigator:
         """
         referenceCenterPoints = preprocessor.extractCenterpoints(referenceCraters)
         descentImageCenterPoints = preprocessor.extractCenterpoints(descentImageCraters)
-        # verificationcraters = random.sample(list(descentImageCraters.items()), 3)
-        # verificationcraters = [list(descentImageCraters.items()[k]) for k in [1, 3, 4]]
-        verificationcraters = [list(descentImageCraters.items())[k] for k in [1, 3, 4]]
+        verificationcraters = random.sample(list(descentImageCraters.items()), 3)
 
         print("Reference centre points")
         print(referenceCenterPoints)
@@ -100,11 +98,9 @@ class Navigator:
         print("Descent image centre points")
         print(descentImageCenterPoints)
         print("\n")
-        print("\n")
         print("verification craters")
         print(verificationcraters)
-
-        # verificationcraters = [list(list(descentImageCraters.items())[k]) for k in [1, 3, 4]]
+        print("\n")
 
         foundreferencecraters = []
         scale = 0
@@ -113,13 +109,17 @@ class Navigator:
         for descentkey, crater in verificationcraters:
             smallSet = self.oneCombinationUnitVector(crater.centerpoint, descentImageCenterPoints)
             for (referencekey, values) in allPossibleCombinations.items():
-                if (self.isSubsetOf(smallSet, values, 0.1)):
+                if (self.isSubsetOf(smallSet, values, 0.2)):
                     foundreferencecraters.append(referenceCenterPoints[referencekey])
                     scale = scale + descentImageCraters[descentkey].diameter/referenceCraters[referencekey].diameter
                     crater_counter += 1
                     break
-        s = scale/crater_counter
-        # s = 1.6
+
+        if crater_counter == 0:
+            print("NO IDENTIFICATION")
+            return None
+        # s = scale /crater_counter
+        s = 1.75
         print("scale : ", s)
         print("\n")
         print("found reference craters")
@@ -217,9 +217,9 @@ class Navigator:
 
         ## Reference Image
         print("reference image")
-        im_ref = Image.open(self.datapath + "TRN/Old/" + self.referenceMap)
+        im_ref = Image.open(self.datapath + "TRN/" + self.referenceMap)
         refImageCraters = craterDetector.extractCraters(im_ref)
-        refImageCraters.pop(1)
+        # refImageCraters.pop(1)
         print(refImageCraters)
         # referenceCraters = viewer.loadData(self.datapath, self.referenceCatalogue)
         # print("reference craters")
@@ -241,10 +241,6 @@ class Navigator:
         self.descent_im = im
         descentImageCraters = craterDetector.extractCraters(im)
         print("descent image craters")
-        # print(descentImageCraters)
-        # descentImageCraters.pop(1)
-        # descentImageCraters.pop(2)
-        # print(descentImageCraters)
         print("------------------")
         self.executePatternRecognition(allPossibleCombinations, refImageCraters, descentImageCraters)
 

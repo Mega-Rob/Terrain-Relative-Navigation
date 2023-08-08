@@ -57,8 +57,8 @@ def drawFoundCraters(sortedclusters, imagematrix, im):
         im = draw_thick_point(im, [x,y])
     # map(lambda (k, v): map(lambda l: mat.append([l[0], l[1]]), v), edgeclusters.items())
     # viewer.plotClusters(mat)
-    im.save("output.png")
-    im.show()
+    # im.save("output.png")
+    # im.show()
 
 def draw_thick_point(im, xy):
     i = int(xy[0])
