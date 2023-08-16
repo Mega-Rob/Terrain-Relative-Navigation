@@ -27,11 +27,8 @@ def applyPrimaryIlluminationFilter(im):
     """
     global primaryFilterTreshold
     array = []
-    # print("im size : ", im.size)
     imagematrix = viewer.RGBToGray(np.asarray(im)) # convert color to grayscale
-    # imagematrix = np.asarray(im)
     imagematrix_copy = np.copy(imagematrix)
-    # print("im matrix size : ", imagematrix_copy.shape)
     for i in range(0, imagematrix_copy.shape[0] - 1):
         for j in range(0, imagematrix_copy.shape[1] - 1):
 
@@ -53,7 +50,6 @@ def retrieveCraterClusters(array):
     :return: hashmap of all the clusters sorted by index.
     """
     mat = np.array(array)
-    # print("mat size : ", mat.size)
     thresh = 10  # 5.5
     start_time = timeit.default_timer()
     clusters = hcluster.fclusterdata(mat, thresh, criterion="distance")
@@ -61,7 +57,6 @@ def retrieveCraterClusters(array):
     execution_time = end_time - start_time
     print(f"clustering executed in: {execution_time} seconds")
     sortedclusters = {}
-    # print("nbr clusters : ", len(clusters))
     for i in range(0, len(clusters) - 1):
         if clusters[i] in sortedclusters.keys():
             sortedclusters[clusters[i]].append(mat[i])
@@ -71,10 +66,8 @@ def retrieveCraterClusters(array):
 
     ## Uncomment this section to plot the clusters.
     mat = []
-    # map(lambda (k, v): map(lambda l: mat.append([l[0], l[1]]), v), sortedclusters.items())
     list(map(lambda item: list(map(lambda l: mat.append([l[0], l[1]]), item[1])), sortedclusters.items()))
     # viewer.plotClusters(mat)
-    ###
     return reIndexCenterPoints(sortedclusters)
 
 def reIndexCenterPoints(centerpoints):
@@ -103,8 +96,6 @@ def retrieveAllClusterCenterPoints(sortedclusters, imagematrix):
     edges = {}
     for (k, v) in sortedclusters.items():
         edgecluster = viewer.findEdges(v, imagematrix)
-        # map(lambda x: edges[x.key]=x.value, edgecluster)
-        # map(lambda x: viewer.drawpoint(draw, (x[1], x[0]), 6), edgecluster)
         distance, fartestpoints = viewer.searchForFartestPoint(edgecluster) #Search for fartestpoint in cluster for diameter determination.
         diameter = 1 * distance
         y, x = viewer.calculateMiddlePoint(diameter, fartestpoints)  # CHANGED X, Y to Y, X
@@ -119,15 +110,9 @@ def extractCraters(im):
     :param im: image that needs to be processed and retrieve respective diameters.
     :return: centerpoint and the diameters of all the craters in the given image.
     """
-    # print("applyPrimaryIlluminationFilter")
     array, imagematrix = applyPrimaryIlluminationFilter(im)
-    # print("retrieveCraterClusters")
     sortedclusters = retrieveCraterClusters(array)
-    # print("retrieveAllClusterCenterPoints")
     craters = retrieveAllClusterCenterPoints(sortedclusters, imagematrix)
-    # print("drawFoundCraters")
-    # ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
-    # print("extractCraters Finished")
     ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
     return craters
 

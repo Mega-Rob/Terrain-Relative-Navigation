@@ -5,27 +5,21 @@ import numpy as np
 from PIL import ImageDraw
 
 import src.Preprocessor as preprocessor
-import src.shownp as viewer
 import src.CraterDetector as craterDetector
 
 class Navigator:
-    def __init__(self, referenceAltitude, referenceMap, referenceCatalogue, datapath):
+    def __init__(self, referenceAltitude, referenceMap, datapath):
         """
         Initializes an instance of Navigator object which preprocesses the referenceMap automatically.
         By creating a Navigator object once, it makes it possible to detect consecutive images without
         preprocessing it.
         :param referenceAltitude: The altitude at which the reference image is given
         :param referenceMap: The name of the reference map.
-        :param referenceCatalogue: The catalogue of the reference image. This contains all the centerpoints of all the craters
-        and their diameters.
         """
         self.datapath = datapath
         self.referenceAltitude = referenceAltitude
         self.referenceMap = referenceMap
-        self.referenceCatalogue = referenceCatalogue
-        self.referenceCombinations = referenceCatalogue + "Combinations"
         self.descent_im = None
-        # preprocessor.preprocessReferenceImage(self.referenceCatalogue, self.referenceCombinations, datapath)
 
     def oneCombinationUnitVector(self, point, centerpoints):
         """
@@ -78,7 +72,6 @@ class Navigator:
 
         refimage.show()
 
-
     def executePatternRecognition(self, allPossibleCombinations, referenceCraters, descentImageCraters):
         """
         This part actually executes the pattern recognition on the reference map.
@@ -118,15 +111,11 @@ class Navigator:
         if crater_counter == 0:
             print("NO IDENTIFICATION")
             return None
-        # s = scale /crater_counter
         s = 1.75
         print("scale : ", s)
         print("\n")
         print("found reference craters")
         print(foundreferencecraters)
-        # foundreferencecraters = [np.array([511.5, 428]), np.array([406, 700]), np.array([587, 777])]
-        # print("tested reference craters")
-        # print(foundreferencecraters)
         lowerleftpoint, lowerrightpoint,  upperleftpoint, upperrightpoint = self.findViewingRectangle(
             foundreferencecraters, s, verificationcraters)
         middlepoint = (upperleftpoint + lowerleftpoint + upperrightpoint + lowerrightpoint) / 4
@@ -148,7 +137,6 @@ class Navigator:
         upperrightpoint = np.array([0,0])
         lowerleftpoint = np.array([0,0])
         nbr_founf_ref_craters = len(foundreferencecraters)
-        # print("nbr_founf_ref_craters - Terrain navigator : ", nbr_founf_ref_craters )
         x_img = self.descent_im.size[0]
         y_img = self.descent_im.size[1]
         for i in range(nbr_founf_ref_craters):
@@ -219,23 +207,10 @@ class Navigator:
         print("reference image")
         im_ref = Image.open(self.datapath + "TRN/" + self.referenceMap)
         refImageCraters = craterDetector.extractCraters(im_ref)
-        # refImageCraters.pop(1)
         print(refImageCraters)
-        # referenceCraters = viewer.loadData(self.datapath, self.referenceCatalogue)
-        # print("reference craters")
-        # print(refImageCraters)
-        # print("------------------")
-
-        # allPossibleCombinations = viewer.loadData(self.datapath, self.referenceCombinations)
-        # print("all possible combinations computation stared")
         allPossibleCombinations = preprocessor.preprocessReferenceImage(refImageCraters)
-        # print("all possible combinations")
-        # print(allPossibleCombinations)
-        # print("------------------")
-        # reference_catalogue = viewer.loadData("referenceCatalogue")
-        # centerpoints = preprocessor.extractCenterpoints(reference_catalogue)
-
         print("descent image")
+
         ## Local image
         im = Image.open(imagename)
         self.descent_im = im

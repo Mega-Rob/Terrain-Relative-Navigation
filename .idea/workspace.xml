@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="clean up">
+    <list default="true" id="f7c30ea1-e2c4-4f17-b13b-4c186567b49a" name="Default" comment="something working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/reference_preprocess/finalReferenceCatalogueCombinations" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/reference_preprocess/finalReferenceCenterpoints" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/reference_preprocess/finalReferenceCraterData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/reference_preprocess/finalReferenceCraterDataCombinations" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CraterDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/CraterDetector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EllipseFitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/EllipseFitter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Preprocessor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TerrainNavigator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/TerrainNavigator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/method3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature_extraction_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/method2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/output.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,21 +284,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/meha/PycharmProjects/Terrain-Relative-Navigation/data/TRN&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/meha/PycharmProjects/Terrain-Relative-Navigation",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data/TRN" />
@@ -510,7 +517,10 @@
       <workItem from="1691358229108" duration="5953000" />
       <workItem from="1691420991475" duration="5698000" />
       <workItem from="1691482855323" duration="1286000" />
-      <workItem from="1691485952386" duration="655000" />
+      <workItem from="1691485952386" duration="2366000" />
+      <workItem from="1691491770860" duration="620000" />
+      <workItem from="1692225031284" duration="6000" />
+      <workItem from="1692225112754" duration="356000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed errors">
       <created>1687432145956</created>
@@ -622,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691396881738</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="something working">
+      <option name="closed" value="true" />
+      <created>1691486738889</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1691486738889</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -697,7 +715,8 @@
     <MESSAGE value="work to be continued" />
     <MESSAGE value="WIP" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="something working" />
+    <option name="LAST_COMMIT_MESSAGE" value="something working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -718,7 +737,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$feature_extraction_test.coverage" NAME="feature_extraction_test Coverage Results" MODIFIED="1688897447390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1691486607631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/feature_extraction_test_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1692225334632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$Main.coverage" NAME="Main Coverage Results" MODIFIED="1691491776927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$CraterDetector.coverage" NAME="CraterDetector Coverage Results" MODIFIED="1688649232814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$python_Main_py_Scene1.coverage" NAME="python Main.py Scene1 Coverage Results" MODIFIED="1687448492537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Terrain_Relative_Navigation$test.coverage" NAME="test Coverage Results" MODIFIED="1689864999665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
