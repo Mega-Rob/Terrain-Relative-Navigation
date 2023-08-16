@@ -4,7 +4,7 @@ import scipy.cluster.hierarchy as hcluster
 from PIL import Image
 from PIL import ImageChops
 from PIL import ImageDraw
-from scipy import ndimage #, random
+from scipy import ndimage  # , random
 
 import src.shownp as viewer
 import src.EllipseFitter as ellipsefitter
@@ -27,7 +27,7 @@ def applyPrimaryIlluminationFilter(im):
     """
     global primaryFilterTreshold
     array = []
-    imagematrix = viewer.RGBToGray(np.asarray(im)) # convert color to grayscale
+    imagematrix = viewer.RGBToGray(np.asarray(im))  # convert color to grayscale
     imagematrix_copy = np.copy(imagematrix)
     for i in range(0, imagematrix_copy.shape[0] - 1):
         for j in range(0, imagematrix_copy.shape[1] - 1):
@@ -64,16 +64,17 @@ def retrieveCraterClusters(array):
             sortedclusters[clusters[i]] = [mat[i]]
     sortedclusters = {k: v for k, v in sortedclusters.items() if len(v) > 25}
 
-    ## Uncomment this section to plot the clusters.
+    # Uncomment this section to plot the clusters.
     mat = []
     list(map(lambda item: list(map(lambda l: mat.append([l[0], l[1]]), item[1])), sortedclusters.items()))
     # viewer.plotClusters(mat)
     return reIndexCenterPoints(sortedclusters)
 
+
 def reIndexCenterPoints(centerpoints):
     """
     Helper method to rearrange missing cluster points in the given hashmap.
-    This method is only to be accessed by methods in this module and not intented to be accesed arbitrarily.
+    This method is only to be accessed by methods in this module and not intended to be accessed arbitrarily.
     :param centerpoints: All the centerpoints of the craters in an image that needs sorting.
     :return: sorted cluster points.
     """
@@ -83,6 +84,7 @@ def reIndexCenterPoints(centerpoints):
         sortedcenterpoints[counter] = v
         counter += 1
     return sortedcenterpoints
+
 
 def retrieveAllClusterCenterPoints(sortedclusters, imagematrix):
     """
@@ -96,7 +98,7 @@ def retrieveAllClusterCenterPoints(sortedclusters, imagematrix):
     edges = {}
     for (k, v) in sortedclusters.items():
         edgecluster = viewer.findEdges(v, imagematrix)
-        distance, fartestpoints = viewer.searchForFartestPoint(edgecluster) #Search for fartestpoint in cluster for diameter determination.
+        distance, fartestpoints = viewer.searchForFartestPoint(edgecluster)  # Search for fartestpoint in cluster for diameter determination.
         diameter = 1 * distance
         y, x = viewer.calculateMiddlePoint(diameter, fartestpoints)  # CHANGED X, Y to Y, X
         centerpoint = np.array([x, y])
@@ -106,7 +108,7 @@ def retrieveAllClusterCenterPoints(sortedclusters, imagematrix):
 
 def extractCraters(im):
     """
-    This method is only to be accessed by methods in this module and not intented to be accessed arbitrarily.
+    This method is only to be accessed by methods in this module and not intended to be accessed arbitrarily.
     :param im: image that needs to be processed and retrieve respective diameters.
     :return: centerpoint and the diameters of all the craters in the given image.
     """
@@ -116,9 +118,10 @@ def extractCraters(im):
     ellipsefitter.drawFoundCraters(sortedclusters, imagematrix, im)
     return craters
 
+
 def extractCratersWithImage(im):
     """
-    This method is only to be accessed by methods in this module and not intented to be accessed arbitrarily.
+    This method is only to be accessed by methods in this module and not intended to be accessed arbitrarily.
     :param im: image that needs to be processed and retrieve respective diameters.
     :return: centerpoint and the diameters of all the craters in the given image.
     """
